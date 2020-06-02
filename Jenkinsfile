@@ -21,7 +21,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'aws s3 ls'
+                sh 'aws s3 cp --recursive build s3://react-burger-app-dev'
             }
         }
     }
