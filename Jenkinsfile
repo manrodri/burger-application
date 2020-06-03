@@ -8,12 +8,13 @@ pipeline {
         label 'node1'
     }
             steps {
-                sh 'cd front-end'
-                echo 'Building..'
-                echo "install dependencies"
-                sh 'npm install'
-                echo 'create build'
-                sh 'npm run build'
+                sh 'cd ./front-end'
+                sh 'ls -alh'
+//                 echo 'Building..'
+//                 echo "install dependencies"
+//                 sh 'npm install'
+//                 echo 'create build'
+//                 sh 'npm run build'
             }
         }
 
@@ -23,11 +24,11 @@ pipeline {
     }
             steps {
                 echo 'Building..'
-                sh 'cd back-end'
-                echo "install dependencies"
-                sh 'npm install'
-                echo 'create build'
-                sh 'npm start'
+//                 sh 'cd back-end'
+//                 echo "install dependencies"
+//                 sh 'npm install'
+//                 echo 'create build'
+//                 sh 'npm start'
             }
         }
         stage('Test') {
@@ -42,7 +43,7 @@ pipeline {
     }
             steps {
                 echo 'Deploying....'
-                sh 'aws s3 cp --recursive build s3://react-burger-app-dev'
+//                 sh 'aws s3 cp --recursive build s3://react-burger-app-dev'
             }
         }
     }
