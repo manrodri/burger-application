@@ -8,6 +8,7 @@ pipeline {
         label 'node1'
     }
             steps {
+                sh 'cd front-end'
                 echo 'Building..'
                 echo "install dependencies"
                 sh 'npm install'
@@ -22,10 +23,11 @@ pipeline {
     }
             steps {
                 echo 'Building..'
+                sh 'cd back-end'
                 echo "install dependencies"
                 sh 'npm install'
                 echo 'create build'
-                sh 'npm run build'
+                sh 'npm start'
             }
         }
         stage('Test') {
