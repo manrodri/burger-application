@@ -31,10 +31,10 @@ artifacts:
   files:
     - front-end/build/**/*
   discard-paths: yes
-  name: burger-app
+  name: BuildArtifact
   secondary-artifacts:
     artifact1:
       files:
         - back-end/**/*
       discard-paths: yes
-      name: places-api
+      name: ApiArtifact
