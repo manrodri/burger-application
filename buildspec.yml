@@ -32,12 +32,12 @@ artifacts:
     -  '**/*'
   discard-paths: yes
   secondary-artifacts:
-    artifact1:
+    ApiArtifact:
       files:
         - back-end/**/*
       discard-paths: yes
       name: ApiArtifact
-    artifact2:
+    BuildArtifact:
       files:
         - front-end/build/**/*
       discard-paths: yes
