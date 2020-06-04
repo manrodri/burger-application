@@ -1,0 +1,36 @@
+version: 0.2
+
+env:
+  variables:
+    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
+  parameter-store:
+    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - apt-get update -y
+      - sudo apt update
+      - sudo apt install -y build-essential apt-transport-https lsb-release ca-certificates curl
+      - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+      - sudo apt install -y nodejs
+
+  build:
+    commands:
+      - echo Entered the build phase...
+      - echo Build started on `date`
+      - cd front-end
+      - npm install
+      - npm run build
+
+  post_build:
+    commands:
+      - echo Entered the post_build phase...
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - build/**/*
+  discard-paths: yes
+  name: burger-app-$(date +%Y-%m-%d)
