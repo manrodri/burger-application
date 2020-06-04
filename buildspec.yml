@@ -6,7 +6,7 @@ phases:
       - echo Entered the install phase...
       - apt-get update -y
       - apt install -y build-essential apt-transport-https lsb-release ca-certificates curl
-      - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+      - curl -sL https://deb.nodesource.com/setup_12.x | -E bash -
       - apt install -y nodejs
 
   build:
@@ -26,4 +26,4 @@ artifacts:
   files:
     - build/**/*
   discard-paths: yes
-  name: burger-app-$(date +%Y-%m-%d)
+  name: burger-app
