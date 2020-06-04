@@ -26,6 +26,6 @@ phases:
 
 artifacts:
   files:
-    - build/**/*
+    - front-end/build/**/*
   discard-paths: yes
   name: burger-app
