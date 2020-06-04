@@ -29,12 +29,16 @@ phases:
 
 artifacts:
   files:
-    - front-end/build/**/*
+    -  '**/*'
   discard-paths: yes
-  name: BuildArtifact
   secondary-artifacts:
     artifact1:
       files:
         - back-end/**/*
       discard-paths: yes
       name: ApiArtifact
+    artifact2:
+      files:
+        - front-end/build/**/*
+      discard-paths: yes
+      name: BuildArtifact
