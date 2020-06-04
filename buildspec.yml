@@ -16,6 +16,9 @@ phases:
       - cd front-end
       - npm install
       - npm run build
+      - cd ../back-end
+      - npm install
+
 
   post_build:
     commands:
@@ -29,3 +32,9 @@ artifacts:
     - front-end/build/**/*
   discard-paths: yes
   name: burger-app
+  secondary-artifacts:
+    artifact1:
+      files:
+        - back-end/**/*
+      discard-paths: yes
+      name: places-api
