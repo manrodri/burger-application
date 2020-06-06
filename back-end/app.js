@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const placesRoutes = require('./routes/places-routes');
 const usersRoutes = require('./routes/users-routes');
@@ -25,4 +26,17 @@ app.use((error, req, res, next) => {
   res.json({message: error.message || 'An unknown error occurred!'});
 });
 
-app.listen(5000);
+
+const passwd = '4GreenApples'
+const user = 'manu'
+const db_name = 'places'
+const host = 'cluster0-itesb.mongodb.net'
+
+const url =
+  `mongodb+srv://${user}:${passwd}@${host}/${db_name}?retryWrites=true&w=majority`;
+
+
+mongoose.connect(url,  { useNewUrlParser: true,  useUnifiedTopology: true })
+    .then(() => {app.listen(5000);})
+    .catch((err) => {console.log(err)})
+
